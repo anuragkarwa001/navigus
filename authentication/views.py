@@ -12,6 +12,20 @@ def login_page(request):
 
 def signup_page(request):
     return render(request,"authentication/registration.html")
+
+def view_page(request):
+    if  request.user.is_authenticated==True:
+        return HttpResponse("<a href='/authentication/logout' >logout </a>       view the page")
+    else :
+        
+        return redirect("/authentication/login_page")
+def logout(request):
+
+     auth.logout(request)
+     return redirect("/authentication/login_page")
+
+
+
 def login(request):
 
     username=request.POST['username']
@@ -20,16 +34,17 @@ def login(request):
     user=auth.authenticate(username=username,password=password)
     if user is not None:
         auth.login(request,user)
-        return HttpResponse('<h1>sucess</h1>')
+        return redirect('/authentication/login_page/view_page')
     else:
-        messages.info(request,"invalid credentials")
-        return HttpResponse("failure")
+        return messages.info(request,"invalid credentials")
+        #return HttpResponse("failure")
+        
 
 
 
 
 
-    return HttpResponse("hie")
+    
 
 def signup(request):
 
