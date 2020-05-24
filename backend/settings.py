@@ -80,9 +80,9 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'navigus',
+        'NAME': 'postgres',
         'USER':'postgres',
-        'PASSWORD':'mahi@001',
+        'PASSWORD':'tushar10494',
         'HOST':'localhost'
     }
 }
@@ -128,7 +128,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS=(os.path.join(BASE_DIR,'authentication/static'),)
+#STATICFILES_DIRS=(os.path.join(BASE_DIR,'authentication/static'),)
 STATIC_ROOT=os.path.join(BASE_DIR,'authentication/static')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
