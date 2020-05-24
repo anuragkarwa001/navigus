@@ -106,7 +106,17 @@
         <input name="password" id="iPassword" type="password" placeholder="enter your password" />
       </div>
       <button type="submit">Login</button>
+      {% if messages %}
+      <ul class="messages">
+      {% for message in messages %}
+      <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+      {% endfor %}
+      </ul>
+      {% endif %}
       
     </form>
   </div>
+  
+  
+ 
 </body>
